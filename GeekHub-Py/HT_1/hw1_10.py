@@ -12,6 +12,4 @@ dic1 = {1:10, 2:20}
 dic2 = {3:30, 4:40}
 dic3 = {5:50, 6:60}
 
-main_dict = {}
-[main_dict.update(dict_data) for dict_data in [dic1, dic2, dic3]]
-print(main_dict)
+print({**dic1, **dic2, **dic3})
