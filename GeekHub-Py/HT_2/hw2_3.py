@@ -4,7 +4,7 @@
 якiй цей мiсяць належить (зима, весна, лiто або осiнь)
 """
 
-def season(month: int):
+def season(month: int) -> str:
 	month_to_season = {
 		(12, 1, 2): "winter",
 		(3, 4, 5): "spring",
