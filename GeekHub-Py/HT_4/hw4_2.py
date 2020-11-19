@@ -18,11 +18,15 @@ class SigninException(Exception):
 def check_data(username, password):
 	try:
 		name_len = len(username)
-		if name_len < 3 or name_len > 50:
-			raise SigninException('Name should be more than 3 and less than 50')
-		elif len(password) < 8 or not re.search(r'\d', password):
-			raise SigninException('Password should not be less than 8 and should contain at least one digit')
-		elif password.casefold() in ['qwerty', '0000', '123456789']:
+		if name_len < 3:
+			raise SigninException('Length of name should be more than 3 symbols')
+		elif name_len > 50:
+			raise SigninException('Length of name should be less than 50 symbols')
+		elif len(password) < 8:
+			raise SigninException('Length of password should not be less than 8 symbols')
+		elif not re.search(r'\d', password):
+			raise SigninException('Password should contain at least one digit')
+		elif password.casefold() in ['qwerty1234', '00000000', '123456789']:
 			raise SigninException('Easy password. Please change it to more secure.')
 	except SigninException as err:
 		return err.text
@@ -30,4 +34,4 @@ def check_data(username, password):
 		return True
 
 
-print(check_data('Vasya', '123'))
+print(check_data('Vasya', '00000000'))
