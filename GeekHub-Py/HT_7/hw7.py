@@ -198,7 +198,8 @@ class CashMachine:
                 break
 
             div = current_n // nom
-            if 0 < div <= banknotes[nom]:
+            if div > 0:
+                div = banknotes[nom] if div > banknotes[nom] else div
                 check_n = current_n - div * nom
                 if [g for g in all_cash[i:] if check_n % g == 0]:
                     current_n = check_n
