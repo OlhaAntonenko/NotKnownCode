@@ -1,11 +1,11 @@
 import csv
 import logging
+import re
 import time
 from os.path import exists
-import re
+
 import requests
 from bs4 import BeautifulSoup
-
 
 logging.basicConfig(
     level=logging.INFO, format='%(asctime)s | %(name)s | %(levelname)s | %(message)s'
