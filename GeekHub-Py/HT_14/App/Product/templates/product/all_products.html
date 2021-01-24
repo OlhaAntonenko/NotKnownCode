@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for product in products %}
+        <a href="{% url 'product_info' pid=product.id %}">{{ product.name }}</a></br>
+    {% endfor %}
+
+    <form action="/create" method="get">
+        {% csrf_token %}
+        <input type="submit" value="Create">
+    </form>
+
+</body>
+</html>

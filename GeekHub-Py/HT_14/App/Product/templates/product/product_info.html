@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <b> INFO: </b></br> {{ product }}
+
+    <form action="{% url 'delete_product' product.id %}" method="post" >
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form>
+
+    <form action="{% url 'update_product' product.id %}" method="post" >
+        {% csrf_token %}
+        {% if product.is_active == True %}
+            <input type="submit" name='action' value="Deactivate">
+        {% elif product.is_active == False %}
+            <input type="submit" name='action' value="Activate">
+        {% endif %}
+    </form>
+
+</body>
+</html>
